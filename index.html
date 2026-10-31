@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090719">
+  <title>RS AI - Your Intelligent Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo">RS</div>
+        <h2>RS AI</h2>
+      </div>
+
+      <button class="new-chat" onclick="newChat()">
+        + New Chat
+      </button>
+
+      <h4>CHAT HISTORY</h4>
+      <div id="history"></div>
+
+      <div class="sidebar-bottom">
+        <button onclick="toggleSettings()">⚙ Settings</button>
+        <p>RS Technologies © 2026</p>
+      </div>
+    </aside>
+
+    <main class="main">
+
+      <header class="topbar">
+        <button onclick="toggleSidebar()">☰</button>
+        <h3>RS AI</h3>
+        <button onclick="toggleSettings()">⚙</button>
+      </header>
+
+      <section class="chat-area" id="chatArea">
+        <div class="welcome" id="welcome">
+          <div class="big-logo">RS</div>
+          <h1>Welcome to RS AI</h1>
+          <p>Your intelligent assistant for everything.</p>
+
+          <div class="suggestions">
+            <button onclick="suggest('Help me learn English')">
+              Learn English
+            </button>
+            <button onclick="suggest('Explain technology to me')">
+              Learn Technology
+            </button>
+            <button onclick="suggest('Help me with my studies')">
+              Study Assistant
+            </button>
+            <button onclick="suggest('Give me creative ideas')">
+              Creative Ideas
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="input-area">
+        <div class="input-box">
+          <textarea id="messageInput"
+            placeholder="Message RS AI..."
+            rows="1"></textarea>
+          <button onclick="sendMessage()" id="sendBtn">
+            ➤
+          </button>
+        </div>
+        <p>RS AI can make mistakes. Check important information.</p>
+      </footer>
+
+    </main>
+
+    <section class="settings" id="settings">
+      <h2>Settings</h2>
+      <h3>Appearance & Themes</h3>
+
+      <label>Choose Theme</label>
+      <select id="themeSelect">
+        <option value="cosmic">Cosmic Galaxy</option>
+        <option value="midnight">Midnight Black</option>
+        <option value="purple">Royal Purple</option>
+        <option value="gold">Golden Luxury</option>
+        <option value="ocean">Ocean Blue</option>
+        <option value="green">Emerald Green</option>
+        <option value="rose">Rose Gold</option>
+        <option value="sunset">Sunset Glow</option>
+        <option value="arctic">Arctic Glass</option>
+        <option value="aurora">Aurora</option>
+        <option value="pureblack">Pure Black</option>
+        <option value="white">Pure White</option>
+      </select>
+
+      <label>Display Mode</label>
+      <select id="modeSelect">
+        <option value="dark">Dark Mode</option>
+        <option value="light">Light Mode</option>
+      </select>
+
+      <button onclick="toggleSettings()">Close</button>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
