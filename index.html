@@ -1,85 +1,179 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090719">
-  <title>RS AI - Your Intelligent Assistant</title>
+  <title>RS AI — Intelligent Assistant</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="app">
+<div class="app">
 
-    <aside class="sidebar" id="sidebar">
-      <div class="brand">
-        <div class="logo">RS</div>
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+      <div class="logo">RS</div>
+      <div class="brand-info">
         <h2>RS AI</h2>
+        <span>INTELLIGENCE PLATFORM</span>
+      </div>
+    </div>
+
+    <button class="new-chat" onclick="newChat()">
+      <span>＋</span> New conversation
+    </button>
+
+    <div class="sidebar-section">
+      <h4>WORKSPACE</h4>
+      <div class="workspace-item active">
+        <span>✦</span> AI Assistant
+      </div>
+    </div>
+
+    <div class="history-section">
+      <h4>RECENT CONVERSATIONS</h4>
+      <div id="history"></div>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="account-card">
+        <div class="account-avatar">RS</div>
+        <div>
+          <strong>RS Technologies</strong>
+          <small>Personal workspace</small>
+        </div>
       </div>
 
-      <button class="new-chat" onclick="newChat()">
-        + New Chat
+      <button class="settings-button" onclick="toggleSettings()">
+        <span>⚙</span> Settings
       </button>
 
-      <h4>CHAT HISTORY</h4>
-      <div id="history"></div>
+      <p class="copyright">RS TECHNOLOGIES © 2026</p>
+    </div>
 
-      <div class="sidebar-bottom">
-        <button onclick="toggleSettings()">⚙ Settings</button>
-        <p>RS Technologies © 2026</p>
-      </div>
-    </aside>
+  </aside>
 
-    <main class="main">
+  <!-- MAIN -->
+  <main class="main">
 
-      <header class="topbar">
-        <button onclick="toggleSidebar()">☰</button>
+    <header class="topbar">
+      <button class="icon-button" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+
+      <div class="topbar-title">
         <h3>RS AI</h3>
-        <button onclick="toggleSettings()">⚙</button>
-      </header>
+        <span><i class="status-dot"></i> Assistant workspace</span>
+      </div>
 
-      <section class="chat-area" id="chatArea">
-        <div class="welcome" id="welcome">
-          <div class="big-logo">RS</div>
-          <h1>Welcome to RS AI</h1>
-          <p>Your intelligent assistant for everything.</p>
+      <div class="topbar-actions">
+        <button class="icon-button" onclick="newChat()" aria-label="New chat">＋</button>
+        <button class="icon-button" onclick="toggleSettings()" aria-label="Settings">⚙</button>
+      </div>
+    </header>
 
-          <div class="suggestions">
-            <button onclick="suggest('Help me learn English')">
-              Learn English
-            </button>
-            <button onclick="suggest('Explain technology to me')">
-              Learn Technology
-            </button>
-            <button onclick="suggest('Help me with my studies')">
-              Study Assistant
-            </button>
-            <button onclick="suggest('Give me creative ideas')">
-              Creative Ideas
-            </button>
-          </div>
+    <!-- CHAT -->
+    <section class="chat-area" id="chatArea">
+
+      <div class="welcome" id="welcome">
+
+        <div class="welcome-badge">
+          <span class="status-dot"></span>
+          YOUR AI WORKSPACE
         </div>
-      </section>
 
-      <footer class="input-area">
-        <div class="input-box">
-          <textarea id="messageInput"
-            placeholder="Message RS AI..."
-            rows="1"></textarea>
-          <button onclick="sendMessage()" id="sendBtn">
-            ➤
+        <div class="big-logo">RS<span>.</span></div>
+
+        <h1>Meet your new<br><span>intelligent assistant.</span></h1>
+
+        <p>
+          Think, learn, create and explore new possibilities
+          with RS AI.
+        </p>
+
+        <div class="suggestions">
+
+          <button onclick="suggest('Help me learn English')">
+            <span class="suggestion-icon purple">文</span>
+            <span>
+              <strong>Learn English</strong>
+              <small>Improve your language skills</small>
+            </span>
+            <b>↗</b>
           </button>
+
+          <button onclick="suggest('Explain technology to me')">
+            <span class="suggestion-icon blue">⌘</span>
+            <span>
+              <strong>Explore technology</strong>
+              <small>Understand new technologies</small>
+            </span>
+            <b>↗</b>
+          </button>
+
+          <button onclick="suggest('Help me with my studies')">
+            <span class="suggestion-icon cyan">▤</span>
+            <span>
+              <strong>Study assistant</strong>
+              <small>Learn step by step</small>
+            </span>
+            <b>↗</b>
+          </button>
+
+          <button onclick="suggest('Give me creative ideas')">
+            <span class="suggestion-icon pink">✧</span>
+            <span>
+              <strong>Creative ideas</strong>
+              <small>Discover new possibilities</small>
+            </span>
+            <b>↗</b>
+          </button>
+
         </div>
-        <p>RS AI can make mistakes. Check important information.</p>
-      </footer>
 
-    </main>
+      </div>
 
-    <section class="settings" id="settings">
-      <h2>Settings</h2>
-      <h3>Appearance & Themes</h3>
+    </section>
 
-      <label>Choose Theme</label>
+    <!-- MESSAGE INPUT -->
+    <footer class="input-area">
+
+      <div class="input-box">
+        <textarea
+          id="messageInput"
+          placeholder="Ask RS AI anything..."
+          rows="1"
+        ></textarea>
+
+        <button onclick="sendMessage()" id="sendBtn" aria-label="Send message">
+          ➤
+        </button>
+      </div>
+
+      <p>RS AI may make mistakes. Verify important information.</p>
+
+    </footer>
+
+  </main>
+
+  <!-- SETTINGS -->
+  <section class="settings" id="settings">
+
+    <div class="settings-header">
+      <div>
+        <span class="settings-kicker">PERSONALIZE</span>
+        <h2>Settings</h2>
+      </div>
+      <button onclick="toggleSettings()" class="icon-button">✕</button>
+    </div>
+
+    <div class="settings-card">
+      <h3>Appearance</h3>
+      <p>Customize the look of your RS AI workspace.</p>
+
+      <label for="themeSelect">Color theme</label>
       <select id="themeSelect">
         <option value="cosmic">Cosmic Galaxy</option>
         <option value="midnight">Midnight Black</option>
@@ -95,17 +189,22 @@
         <option value="white">Pure White</option>
       </select>
 
-      <label>Display Mode</label>
+      <label for="modeSelect">Display mode</label>
       <select id="modeSelect">
         <option value="dark">Dark Mode</option>
         <option value="light">Light Mode</option>
       </select>
+    </div>
 
-      <button onclick="toggleSettings()">Close</button>
-    </section>
+    <div class="settings-footer">
+      <span>RS AI</span>
+      <small>Designed by RS Technologies · 2026</small>
+    </div>
 
-  </div>
+  </section>
 
-  <script src="app.js"></script>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
